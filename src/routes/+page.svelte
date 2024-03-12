@@ -14,11 +14,17 @@
 </svelte:head>
 
 <section>
-  <h1>tip tap</h1>
-  <p>Welcome to tip tap, a typing test!</p>
+  <header>
+    <hr />
+    <h1><i>tip tap</i></h1>
+    <hr />
+    <p>Welcome to <i>tip tap</i>, a typing test!</p>
+  </header>
 
-  <TextBlock />
-  <InputBox />
+  <div class="content">
+    <TextBlock />
+    <InputBox />
+  </div>
 </section>
 
 <style>
@@ -29,6 +35,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: "Manrope";
+  }
+
+  header {
+    padding-top: 50px;
+  }
+
+  header h1 {
+    padding: 10px 0;
+    font-weight: 700;
+  }
+
+  header p {
+    padding: 20px 0;
+  }
+
+  hr {
+    size: 1px;
+    width: 100%;
+    color: black;
+    margin: 0;
+    border-style: solid;
+    border-bottom: none;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 800px;
   }
 </style>

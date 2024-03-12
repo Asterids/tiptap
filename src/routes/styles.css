@@ -1,4 +1,18 @@
 body {
   min-height: 100vh;
+	margin: 0;
   background-color: #fcd769;
+  font-family: "Manrope";
+  font-size: 18px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+	font-weight: 400;
+}
+
+p {
+	line-height: 1.5;
 }

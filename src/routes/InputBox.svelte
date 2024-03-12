@@ -14,9 +14,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 700px;
+    width: 100%;
     height: 300px;
-    border: solid black 1px;
     border-radius: 6px;
     background-color: #fefbf3;
   }
@@ -24,12 +23,14 @@
   .input-box {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    height: 90%;
+    justify-content: space-evenly;
+    width: 92%;
+    height: 100%;
   }
 
   textarea {
     width: 100%;
     height: 100%;
+    height: 220px;
   }
 </style>
