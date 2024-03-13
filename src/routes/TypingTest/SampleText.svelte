@@ -1,17 +1,18 @@
-<script>
-  import { sampleText } from "./store";
-  import { 
-    generateSampleTextLorem,
-    generateSampleTextEnglish,
-    generateSampleTextFrench,
-  } from "./sampleText";
+<script lang="ts">
+  import { sampleText, selectedLang } from "./store";
+  import { generateSampleText } from "./sampleText";
+
+  const handleSelectTab = (lang: string) => {
+    selectedLang.set(lang);
+    sampleText.set(generateSampleText(lang));
+  }
 </script>
 
 <div>
   <div class="lang-selection">
-    <button class="lang-selection-tab" on:click={() => sampleText.set(generateSampleTextLorem())}>Lorem</button>
-    <button class="lang-selection-tab" on:click={() => sampleText.set(generateSampleTextEnglish())}>English</button>
-    <button class="lang-selection-tab" on:click={() => sampleText.set(generateSampleTextFrench())}>French</button>
+    <button class="lang-selection-tab" on:click={() => handleSelectTab('lorem')} value="lorem" name="lorem">Lorem</button>
+    <button class="lang-selection-tab" on:click={() => handleSelectTab('english')} value="english" name="english">English</button>
+    <button class="lang-selection-tab" on:click={() => handleSelectTab('french')} value="french" name="french">French</button>
   </div>
   <div class="text-block">
     <p>{$sampleText}</p>
