@@ -12,16 +12,16 @@
   .text-block {
     display: flex;
     width: 100%;
-    height: 258px;
+    height: 260px;
     border-radius: 4px;
     background-color: #fefbf3;
-    margin: 24px 0;
+    margin: 26px 0;
   }
 
   p {
     display: -webkit-box;
     font-size: 24px;
-    padding: 24px 38px;
+    padding: 25px 38px;
     max-width: 100%;
     overflow: hidden;
     border-bottom: 14px #fefbf3 solid;

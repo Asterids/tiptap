@@ -1,7 +1,5 @@
 <script>
 	import TypingTest from './TypingTest/TypingTest.svelte';
-	// import welcome from '$lib/images/svelte-welcome.webp';
-	// import welcome_fallback from '$lib/images/svelte-welcome.png';
 </script>
 
 <svelte:head>
@@ -34,7 +32,7 @@
   }
 
   header {
-    padding-top: 50px;
+    padding-top: 60px;
   }
 
   header h1 {
@@ -44,7 +42,7 @@
   }
 
   header p {
-    padding: 15px 0;
+    padding: 15px 0 20px 0;
     font-size: 18px;
   }
 

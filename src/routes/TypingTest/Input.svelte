@@ -4,7 +4,7 @@
 
 <div class="input-container">
   <form class="input-box">
-    <label for="type-here">Type here...</label>
+    <label for="type-here">Start typing to begin...</label>
     <textarea id="type-here" rows="10" cols="19" bind:value={$text} />
     <button on:click={() => text.set('')}>Reset</button>
   </form>
