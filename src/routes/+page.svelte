@@ -1,6 +1,5 @@
 <script>
-	import TextBlock from './TextBlock.svelte';
-  import InputBox from './InputBox.svelte';
+	import TypingTest from './TypingTest/TypingTest.svelte';
 	// import welcome from '$lib/images/svelte-welcome.webp';
 	// import welcome_fallback from '$lib/images/svelte-welcome.png';
 </script>
@@ -21,10 +20,7 @@
     <p>Welcome to <i>tip tap</i>, a typing test!</p>
   </header>
 
-  <div class="content">
-    <TextBlock />
-    <InputBox />
-  </div>
+  <TypingTest />
 </section>
 
 <style>
@@ -42,12 +38,14 @@
   }
 
   header h1 {
-    padding: 10px 0;
-    font-weight: 700;
+    padding: 8px 0;
+    font-weight: 800;
+    font-size: 34px;
   }
 
   header p {
-    padding: 20px 0;
+    padding: 15px 0;
+    font-size: 18px;
   }
 
   hr {
@@ -57,11 +55,5 @@
     margin: 0;
     border-style: solid;
     border-bottom: none;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    width: 800px;
   }
 </style>

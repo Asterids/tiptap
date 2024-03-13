@@ -1,11 +1,12 @@
 <script>
+  import { text } from "./store";
 </script>
 
 <div class="input-container">
   <form class="input-box">
     <label for="type-here">Type here...</label>
-    <textarea id="type-here" rows="10" cols="19" />
-    <button>Reset</button>
+    <textarea id="type-here" rows="10" cols="19" bind:value={$text} />
+    <button on:click={() => text.set('')}>Reset</button>
   </form>
 </div>
 
@@ -33,12 +34,13 @@
   textarea {
     box-sizing: border-box;
     display: flex;
-    padding: 12px;
+    padding: 16px;
     margin: 14px 0;
     width: 100%;
     height: 100%;
     height: 220px;
-    font-size: 18px;
+    font-size: 20px;
+    line-height: 1.55;
   }
 
   button {
