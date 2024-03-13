@@ -2,13 +2,13 @@
   import { inputText } from "./store";
 </script>
 
-<div class="input-container">
+<section class="input-container">
   <form class="input-box">
     <label for="type-here">Start typing to begin...</label>
     <textarea id="type-here" rows="10" cols="19" bind:value={$inputText} />
     <button on:click={() => inputText.set('')}>Reset</button>
   </form>
-</div>
+</section>
 
 <style>
   .input-container {
@@ -44,20 +44,6 @@
   }
 
   button {
-    width: 72px;
-    height: 42px;
     align-self: flex-end;
-    font-size: 16px;
-    background-color: #183642;
-    border: 1px solid #183642;
-    border-radius: 5px;
-    font-family: Manrope;
-    font-weight: 600;
-    color: #fff;
-  }
-
-  button:hover {
-    background-color: #c1e4ff;
-    color: #000;
   }
 </style>

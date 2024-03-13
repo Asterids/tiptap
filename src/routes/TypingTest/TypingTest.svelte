@@ -3,10 +3,10 @@
   import SampleText from "./SampleText.svelte";
 </script>
 
-<div class="content">
+<section class="content">
   <SampleText />
   <Input />
-</div>
+</section>
 
 <style>
   .content {
