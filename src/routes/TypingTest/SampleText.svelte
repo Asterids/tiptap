@@ -1,7 +1,7 @@
 <script>
-  import { generateSampleText } from "./sampleText";
+  import { generateSampleTextLorem } from "./sampleText";
 
-  let sampleText = generateSampleText();
+  let sampleText = generateSampleTextLorem();
 </script>
 
 <div class="text-block">
