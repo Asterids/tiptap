@@ -1,2 +1,5 @@
 import { writable } from 'svelte/store';
-export const text = writable('');
+import { generateSampleTextLorem } from "./sampleText";
+
+export const sampleText = writable(generateSampleTextLorem());
+export const inputText = writable('');

@@ -1,12 +1,12 @@
 <script>
-  import { text } from "./store";
+  import { inputText } from "./store";
 </script>
 
 <div class="input-container">
   <form class="input-box">
     <label for="type-here">Start typing to begin...</label>
-    <textarea id="type-here" rows="10" cols="19" bind:value={$text} />
-    <button on:click={() => text.set('')}>Reset</button>
+    <textarea id="type-here" rows="10" cols="19" bind:value={$inputText} />
+    <button on:click={() => inputText.set('')}>Reset</button>
   </form>
 </div>
 

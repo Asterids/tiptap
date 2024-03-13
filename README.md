@@ -1,7 +1,7 @@
 # tiptap
 
 A typing speed test.
-Created using Svelte.
+Created in Node.js using Svelte and Faker.
 
 ## Developing
 

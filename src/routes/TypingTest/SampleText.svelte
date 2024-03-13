@@ -1,11 +1,21 @@
 <script>
-  import { generateSampleTextLorem } from "./sampleText";
-
-  let sampleText = generateSampleTextLorem();
+  import { sampleText } from "./store";
+  import { 
+    generateSampleTextLorem,
+    generateSampleTextEnglish,
+    generateSampleTextFrench,
+  } from "./sampleText";
 </script>
 
-<div class="text-block">
-  <p>{sampleText}</p>
+<div>
+  <div class="lang-selection">
+    <button class="lang-selection-tab" on:click={() => sampleText.set(generateSampleTextLorem())}>Lorem</button>
+    <button class="lang-selection-tab" on:click={() => sampleText.set(generateSampleTextEnglish())}>English</button>
+    <button class="lang-selection-tab" on:click={() => sampleText.set(generateSampleTextFrench())}>French</button>
+  </div>
+  <div class="text-block">
+    <p>{$sampleText}</p>
+  </div>
 </div>
 
 <style>
