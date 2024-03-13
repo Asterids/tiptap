@@ -8,7 +8,7 @@
   }
 
   let isSelected = (selectedLang: string, lang: string) => {
-    return $selectedLang === lang ? 'selected' : '';
+    return selectedLang === lang ? 'selected' : '';
   }
 </script>
 
