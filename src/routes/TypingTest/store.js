@@ -9,7 +9,7 @@ export const sampleText = writable(generateSampleText());
 export const inputText = writable('');
 
 export const isRunning = writable(false);
-const timer = 5;
+const timer = 30;
 export let timerLabel = writable(`${timer}`);
 // @ts-ignore
 let intervalId;
