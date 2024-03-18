@@ -1,12 +1,19 @@
 <script>
-  import { inputText } from "./store";
+  import { inputText, isRunning, resetTest, startTestTimer, timerLabel } from "./store";
 </script>
 
 <section class="input-container">
   <form class="input-box">
-    <label for="type-here">Start typing to begin...</label>
-    <textarea id="type-here" rows="10" cols="19" bind:value={$inputText} />
-    <button on:click={() => inputText.set('')}>Reset</button>
+    <div class="input-box-header">
+      <label for="type-here">Type to begin:</label>
+      {#if $isRunning}
+        <p id="timer">{$timerLabel}</p>
+      {/if}
+      {#if $isRunning}
+      <button id="reset" on:click={resetTest}>Reset</button>
+      {/if}
+    </div>
+    <textarea id="type-here" rows="10" cols="19" bind:value={$inputText} on:keydown={startTestTimer} />
   </form>
 </section>
 
@@ -21,6 +28,18 @@
     border-radius: 4px;
     background-color: #fefbf3;
   }
+
+  .input-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 38px;
+  }
+
+  #timer {
+    font-weight: 800;
+    font-size: 20px;
+    color: #257950  }
 
   .input-box {
     display: flex;
@@ -45,5 +64,14 @@
 
   button {
     align-self: flex-end;
+  }
+
+  #reset {
+    background-color: #fefbf3;
+    color: #000;
+  }
+
+  #reset:hover {
+    background-color: #c1e4ff;
   }
 </style>
