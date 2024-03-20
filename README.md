@@ -1,27 +1,16 @@
 # tiptap
 
 A typing speed test.
-Created in Node.js using Svelte and Faker.
+Created with Svelte & SvelteKit, Faker.js, Vite, and Playwright.
 
-## Developing
+## Introduction
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+I built tiptap as my take on a typing speed test, for fun, and also to try out using Svelte to build something interesting.
 
-```bash
-npm run dev
+![alt text](./static/tiptap_thumb.png "A screenshot of the tiptap typing test main page showing a block of text above an input field against a daffodil yellow background")
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Goals
 
-## Building
+My main goal was to explore how I might address certain things I personally find irksome in other typing speed tests I've tried, mainly surrounding the split-second UI cues in the actual text mid-test that communicate success and error states. For me, I want to both be able to see the body of text that I have written, and also see exactly where I'm at in the text I'm typing from and whether my current letter is correct or incorrect.
 
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+I also wanted to offer at least a few customization options to give some range in terms of difficulty level, so I added sample text in several languages and also a few different timer durations to choose from.
