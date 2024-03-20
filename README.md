@@ -2,7 +2,7 @@
 
 A typing speed test.
 
-Created with Svelte & SvelteKit, Faker.js, Vite, and Playwright.
+Created with Svelte & SvelteKit and Faker.js.
 
 *Code still in progress*
 
