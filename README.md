@@ -4,7 +4,7 @@ A typing speed test.
 
 Created with Svelte & SvelteKit, Faker.js, Vite, and Playwright.
 
-Note: *Code is still in progress, will link to live site once deployed.*
+*Code still in progress*
 
 ## Introduction
 
