@@ -10,7 +10,7 @@ Created with Svelte & SvelteKit and Faker.js.
 
 I built tiptap as my take on a typing speed test, for fun, and also to try out using Svelte to build something interesting.
 
-![alt text](./static/tiptap_thumb.png "A screenshot of the tiptap typing test main page showing a block of text above an input field against a daffodil yellow background")
+![alt text](./static/tiptap_thumb_running.png "A screenshot of the tiptap typing test main page showing a block of text above an input field against a daffodil yellow background")
 
 ## Goals
 
