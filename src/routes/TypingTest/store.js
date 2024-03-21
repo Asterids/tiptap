@@ -1,14 +1,17 @@
-import { writable } from 'svelte/store';
+import { derived, get, writable } from 'svelte/store';
 import { generateSampleText } from "./sampleText";
 
-// TODO: fix ts errors
-// TODO: see about making timer setup cleaner
-
 export const selectedLang = writable('lorem');
-export const sampleText = writable(generateSampleText());
-export const inputText = writable('');
 
-export const isRunning = writable(false);
+export const sampleText = writable(generateSampleText());
+export const sampleTextWordsArray = derived(sampleText, ($sampleText) => $sampleText.split(' '));
+export const wordMatchStatusAtIndex = writable([]);
+
+export const inputText = writable('');
+const inputTextWordsArray = derived(inputText, ($inputText) => $inputText.split(' '));
+// const inputTextCursorPosition = derived(inputText, ($inputText) => $inputText.length - 1);
+
+export const isTestInProgress = writable(false);
 const timer = 30;
 export let timerLabel = writable(`${timer}`);
 // @ts-ignore
@@ -16,10 +19,11 @@ let intervalId;
 
 const resetText = () => {
   inputText.set('');
+  sampleText.set(generateSampleText(get(selectedLang)));
 };
 
 const resetTimer = () => {
-  isRunning.set(false);
+  isTestInProgress.set(false);
   timerLabel.set(`${timer}`);
   // @ts-ignore
   clearInterval(intervalId);
@@ -30,19 +34,39 @@ export const resetTest = () => {
   resetTimer();
 };
 
-export function startTestTimer() {
+function beginTest() {
   resetTimer();
-  isRunning.set(true);
+  isTestInProgress.set(true);
   let count = timer;
 
   intervalId = setInterval(() => {
     count--;
     timerLabel.set(`${count}`);
     
-    if (count < 0) {
-      // @ts-ignore
-      clearInterval(intervalId);
-      isRunning.set(false);
+    if (count < 1) {
+      finishTest();
+      timerLabel.set('0');
     }
   }, 1000);
 }
+
+function finishTest() {
+  // @ts-ignore
+  clearInterval(intervalId);
+  isTestInProgress.set(false);
+}
+
+inputTextWordsArray.subscribe((value) => {
+  if (!get(isTestInProgress) && value[0].length) {
+    beginTest();
+  }
+
+  // @ts-ignore
+  let tempArray = [];
+  value.forEach((word, idx) => {
+    tempArray.push(word === get(sampleTextWordsArray)[idx])
+  });
+
+  // @ts-ignore
+  wordMatchStatusAtIndex.set(tempArray);
+});

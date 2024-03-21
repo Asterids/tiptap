@@ -1,19 +1,17 @@
 <script>
-  import { inputText, isRunning, resetTest, startTestTimer, timerLabel } from "./store";
+  import { inputText, isTestInProgress, resetTest, timerLabel } from "./store";
 </script>
 
 <section class="input-container">
   <form class="input-box">
     <div class="input-box-header">
       <label for="type-here">Type to begin:</label>
-      {#if $isRunning}
+      {#if $isTestInProgress}
         <p id="timer">{$timerLabel}</p>
-      {/if}
-      {#if $isRunning}
-      <button id="reset" on:click={resetTest}>Reset</button>
+        <button id="reset" on:click={resetTest}>Reset</button>
       {/if}
     </div>
-    <textarea id="type-here" rows="10" cols="19" bind:value={$inputText} on:keydown={startTestTimer} />
+    <textarea id="type-here" rows="10" cols="19" bind:value={$inputText} />
   </form>
 </section>
 

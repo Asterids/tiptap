@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { sampleText, selectedLang } from "./store";
+  import { inputText, sampleText, sampleTextWordsArray, selectedLang, wordMatchStatusAtIndex } from "./store";
   import { generateSampleText } from "./sampleText";
 
   const handleSelectTab = (lang: string) => {
     selectedLang.set(lang);
+    wordMatchStatusAtIndex.set([]);
+    inputText.set('');
     sampleText.set(generateSampleText(lang));
   }
 
@@ -19,7 +21,23 @@
     <button class="lang-selection-tab {isSelected($selectedLang, 'french')}" on:click={() => handleSelectTab('french')} value="french" name="french">French</button>
   </div>
   <div class="text-block">
-    <p>{$sampleText}</p>
+    <p>
+      {#each $sampleTextWordsArray as word, idx}
+        {#if $wordMatchStatusAtIndex[idx]}
+          <span class="word correct">
+            {word}
+          </span>
+        {:else if $wordMatchStatusAtIndex[idx] !== undefined}
+          <span class="word incorrect">
+            {word}
+          </span>
+        {:else}
+          <span class="word">
+            {word}
+          </span>
+        {/if}
+      {/each}
+    </p>
   </div>
 </section>
 
@@ -60,5 +78,13 @@
     max-width: 100%;
     overflow: hidden;
     border-bottom: 14px #fefbf3 solid;
+  }
+
+  .correct {
+    color: green;
+  }
+
+  .incorrect {
+    color: red;
   }
 </style>
